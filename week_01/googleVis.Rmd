@@ -1,0 +1,18 @@
+---
+title: "googleVis"
+author: "Luca Cerone"
+date: "May 4, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+suppressPackageStartupMessages(library(googleVis))
+op <- options(gvis.plot.tag='chart')
+```
+
+```{r, results='asis'}
+M <- gvisMotionChart(Fruits, "Fruit", "Year")
+M
+```
+
