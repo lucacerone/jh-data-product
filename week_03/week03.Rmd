@@ -1,0 +1,20 @@
+---
+title: "Developing Data Product - week 03"
+author: "Luca Cerone"
+date: "May 4, 2017"
+output: ioslides_presentation
+---
+
+## Plotly graph
+
+```{r, include = FALSE}
+library(plotly)
+```
+
+```{r}
+p <- plot_ly(data = iris, x = ~Sepal.Length, y = ~Petal.Length,
+             mode = "markers", type = "scatter", color = ~Species,
+        marker = list(size = ~Sepal.Length)) 
+
+p
+```
