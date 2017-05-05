@@ -1,35 +1,40 @@
 ---
-title: "Datasets Explorer!"
+title: "DaEx!"
 author: "Luca Cerone"
 date: "May 6, 2017"
 output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+suppressMessages({
+  knitr::opts_chunk$set(echo = FALSE)
+  library(plotly)
+  library(dplyr)
+})
 ```
 
-## R Markdown
+## Datasets Explorer!
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+With "DaEx!" (**Datasets Explorer!**) you can:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+- Select a dataset of you choice
+- Plot any two numeric variables in the dataset using a scatterplot
+- Select which variable should be on the x-axis and which variable should by on the y-axes
 
-## Slide with Bullets
+## Automatic detection of numeric variables
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+DaEx! figures out which variables are suitable to be visualized by a scatterplot!
 
-## Slide with R Output
+- Only the numeric variables can be used in the plot
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
 
-## Slide with Plot
+## Scatterplot in the main panel
 
-```{r pressure}
-plot(pressure)
+Here is an example of a scatterplot shown by DaEx!
+
+```{r}
+dataset <- iris %>% select(x = Sepal.Length, y = Petal.Width)
+p <- plot_ly(dataset, x = ~x, y = ~y, type = "scatter", mode = "markers")
+p
 ```
 
