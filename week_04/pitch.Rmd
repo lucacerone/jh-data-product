@@ -32,9 +32,10 @@ DaEx! figures out which variables are suitable to be visualized by a scatterplot
 
 Here is an example of a scatterplot shown by DaEx!
 
-```{r}
+```{r, echo = TRUE, tidy=F}
 dataset <- iris %>% select(x = Sepal.Length, y = Petal.Width)
-p <- plot_ly(dataset, x = ~x, y = ~y, type = "scatter", mode = "markers")
+p <- plot_ly(dataset, x = ~x, y = ~y, 
+             type = "scatter", mode = "markers")
 p
 ```
 
