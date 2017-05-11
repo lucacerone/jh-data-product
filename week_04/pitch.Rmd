@@ -27,6 +27,18 @@ DaEx! figures out which variables are suitable to be visualized by a scatterplot
 
 - Only the numeric variables can be used in the plot
 
+## Automatic detection of numeric variables 
+
+This is what happens under the hood when you select iris
+
+```{r, echo = TRUE}
+    dataset <- iris
+    cols <- colnames(dataset)
+    is_numeric <- sapply(dataset,is.numeric)
+    cols[is_numeric]
+```
+
+Species is discarded because it is a factor
 
 ## Scatterplot in the main panel
 
